@@ -1,0 +1,63 @@
+{
+    "name": "challenge-06-week06",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "test": "jest --coverage",
+        "test-watch": "jest --coverage --watchAll",
+        "lint": "eslint .",
+        "lint-fix": "eslint --fix .",
+        "prepare": "husky install",
+        "sass": "sass -w ./src/sass:./src/styles"
+    },
+    "author": "Sergio Garcia",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/plugin-transform-modules-commonjs": "^7.17.9",
+        "@types/jest": "^27.5.1",
+        "@typescript-eslint/eslint-plugin": "^5.23.0",
+        "@typescript-eslint/parser": "^5.23.0",
+        "eslint": "^8.15.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-import": "^2.26.0",
+        "husky": "^8.0.1",
+        "jest": "^28.1.0",
+        "lint-staged": "^12.4.1",
+        "prettier": "^2.6.2",
+        "sass": "^1.51.0"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js,json,css,md,html}": [
+            "prettier --single-quote --write",
+            "git add"
+        ]
+    },
+    "prettier": {
+        "singleQuote": true,
+        "endOfLine": "lf"
+    },
+    "babel": {
+        "env": {
+            "test": {
+                "plugins": [
+                    "@babel/plugin-transform-modules-commonjs"
+                ]
+            }
+        }
+    },
+    "jsconfig": {
+        "typeAcquisition": {
+            "include": [
+                "jest"
+            ]
+        }
+    }
+}
